@@ -89,6 +89,7 @@
                 <version>2.0.0</version>
                 <configuration>
                     <deploy.projectId>path-d-246404</deploy.projectId>
+                    <version>1</version>
                 </configuration>
             </plugin>
         </plugins>

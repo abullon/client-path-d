@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  h2:
+    console.enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+firebase:
+  service-account-filename: client-path-d-firebase-adminsdk-61yys-296abb182f.json
+  realtime-database-url: https://client-path-d.firebaseio.com # for example https://your-application.firebaseio.com

@@ -1,0 +1,31 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.spsa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+	maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
+    compile 'io.springfox:springfox-swagger2:2.9.2'
+    compile 'io.springfox:springfox-swagger-ui:2.9.2'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+	compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.8.1'
+	compile 'com.github.fabiomaffioletti:spring-boot-starter-data-firebase:1.0.0.RELEASE'
+	implementation 'com.github.bane73:firebase4j:2f7337cc28'
+	
+	runtime 'com.h2database:h2:1.4.199'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    
+}

@@ -1,0 +1,20 @@
+FROM frolvlad/alpine-java:jre8-slim
+#FROM openjdk:8-jdk-alpine
+#VOLUME /tmp
+ARG JAR_FILE
+ARG SPRING_PROFILES_ACTIVE
+ARG SERVER_PORT
+ARG DB_HOST
+ARG DB_USER
+ARG DB_PASSWORD
+ARG DB_NAME
+ARG DB_PORT
+ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE} \
+    DB_USER=${DB_USER} \
+    DB_PASSWORD=${DB_PASSWORD} \
+    DB_HOST=${DB_HOST} \
+    SERVER_PORT=8080
+RUN mkdir /config
+COPY ${JAR_FILE} app.jar
+EXPOSE ${SERVER_PORT}
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]

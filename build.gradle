@@ -1,21 +1,42 @@
+buildscript {    // Configuration for building
+    repositories {
+        jcenter()    // Bintray's repository - a fast Maven Central mirror & more
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.cloud.tools:appengine-gradle-plugin:1.+'    // Latest 1.x.x release
+    }
+}
+
 plugins {
 	id 'org.springframework.boot' version '2.1.6.RELEASE'
 	id 'java'
 }
 
+apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.google.cloud.tools.appengine'  // App Engine tasks
 
 group = 'com.spsa'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
+targetCompatibility = 1.8
 
 repositories {
+    maven {
+        url 'https://oss.sonatype.org/content/repositories/snapshots' // SNAPSHOT repository (if needed)
+    }
 	mavenCentral()
+    jcenter()
 	maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    compile 'com.google.appengine:appengine-api-1.0-sdk:+'  // Latest App Engine Api's
+
+    compile 'jstl:jstl:1.2'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     compile 'io.springfox:springfox-swagger2:2.9.2'
@@ -24,8 +45,40 @@ dependencies {
 	compile group: 'com.google.firebase', name: 'firebase-admin', version: '6.8.1'
 	compile 'com.github.fabiomaffioletti:spring-boot-starter-data-firebase:1.0.0.RELEASE'
 	implementation 'com.github.bane73:firebase4j:2f7337cc28'
-	
-	runtime 'com.h2database:h2:1.4.199'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    runtime 'com.h2database:h2:1.4.199'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+    testCompile 'com.google.truth:truth:0.33'
+    testCompile 'org.mockito:mockito-all:1.10.19'
+
+    testCompile 'com.google.appengine:appengine-testing:+'
+    testCompile 'com.google.appengine:appengine-api-stubs:+'
+    testCompile 'com.google.appengine:appengine-tools-sdk:+'
+}
+
+// Always run unit tests
+appengineDeploy.dependsOn test
+appengineStage.dependsOn test
+
+appengine {  // App Engine tasks configuration
+    deploy {   // deploy configuration
+
+    }
+}
+
+test {
+    useJUnit()
+    testLogging.showStandardStreams = true
+    beforeTest { descriptor ->
+        logger.lifecycle("test: " + descriptor + "  Running")
+    }
+
+    onOutput { descriptor, event ->
+        logger.lifecycle("test: " + descriptor + ": " + event.message )
+    }
+    afterTest { descriptor, result ->
+        logger.lifecycle("test: " + descriptor + ": " + result )
+    }
 }

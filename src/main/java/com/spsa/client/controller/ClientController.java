@@ -54,7 +54,7 @@ public class ClientController {
 
     public Kpi getKpiClientes() {
         Kpi kpi = new Kpi();
-        kpi.setAveragegAge(clientRepository.calculateAverageAge());
+        kpi.setAverageAge(clientRepository.calculateAverageAge());
         kpi.setStandardDeviation(calculateStandardDeviationAge(clientRepository.findAll(),kpi.getAverageAge()));
         return kpi;
     }

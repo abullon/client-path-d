@@ -9,7 +9,7 @@ public class Kpi {
         return averageAge;
     }
 
-    public void setAveragegAge(Double averagegAge) {
+    public void setAverageAge(Double averageAge) {
         this.averageAge = averageAge;
     }
 

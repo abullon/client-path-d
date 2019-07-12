@@ -2,7 +2,6 @@ package com.spsa.client.repository;
 
 import com.github.fabiomaffioletti.firebase.repository.DefaultFirebaseRealtimeDatabaseRepository;
 import com.spsa.client.model.Client;
-import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

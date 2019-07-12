@@ -7,7 +7,6 @@ import com.spsa.client.service.WorldPopulationService;
 import com.spsa.client.util.DateUtils;
 import com.spsa.client.util.MathUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;

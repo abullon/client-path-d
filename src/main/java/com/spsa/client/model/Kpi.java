@@ -2,15 +2,15 @@ package com.spsa.client.model;
 
 public class Kpi {
 
-    Double averagegAge;
+    Double averageAge;
     Double standardDeviation;
 
     public Double getAverageAge() {
-        return averagegAge;
+        return averageAge;
     }
 
     public void setAveragegAge(Double averagegAge) {
-        this.averagegAge = averagegAge;
+        this.averageAge = averageAge;
     }
 
     public Double getStandardDeviation() {

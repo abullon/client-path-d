@@ -16,25 +16,25 @@ public class ClientService {
         this.clientController = clientController;
     }
 
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "https://path-d-frontend.firebaseapp.com")
     @PostMapping("/creacliente")
     Client newClient(@RequestBody Client client) {
         return clientController.newClient(client);
     }
 
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "https://path-d-frontend.firebaseapp.com")
     @GetMapping("/listclientes")
     public List<Client> getAllClients() {
         return clientController.getAllClients();
     }
 
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "https://path-d-frontend.firebaseapp.com")
     @DeleteMapping("/deleteAllClients")
     public void deleteAllClients() {
         clientController.deleteAllClients();
     }
 
-	@CrossOrigin(origins = "http://localhost:3000")
+	@CrossOrigin(origins = "https://path-d-frontend.firebaseapp.com")
     @GetMapping("/kpideclientes")
     public Kpi getKpiClientes() {
         return clientController.getKpiClientes();

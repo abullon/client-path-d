@@ -46,7 +46,6 @@ dependencies {
 	compile 'com.github.fabiomaffioletti:spring-boot-starter-data-firebase:1.0.0.RELEASE'
 	implementation 'com.github.bane73:firebase4j:2f7337cc28'
     compile group: 'log4j', name: 'log4j', version: '1.2.17'
-
     runtime 'com.h2database:h2:1.4.199'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testCompile group: 'junit', name: 'junit', version: '4.10'

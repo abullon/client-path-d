@@ -31,7 +31,6 @@ public class ClientController {
         Double totalLifeExpectancy = worldPopulationService.getTotalLifeExpectancy(newClient);
         Integer years = totalLifeExpectancy.intValue();
         double daysDecimals = totalLifeExpectancy - years.doubleValue();
-        Integer days = 0;
         Calendar dateCalendar = DateUtils.dateToCalendar(newClient.getBirthday());
         dateCalendar.add(Calendar.YEAR, totalLifeExpectancy.intValue());
         if (calendarGregorian.isLeapYear(dateCalendar.get(Calendar.YEAR))) {

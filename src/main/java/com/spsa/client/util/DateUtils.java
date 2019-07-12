@@ -10,6 +10,9 @@ import java.util.Date;
 
 public class DateUtils {
 
+    private DateUtils() {
+    }
+
     public static final String SMALL_DATE_FORMAT = "yyyy-MM-dd";
 
     public static String format(Date date, String format) {

@@ -21,5 +21,5 @@ public class ClientRepository extends DefaultFirebaseRealtimeDatabaseRepository<
             average = total / count;
         }
         return average;
-    };
+    }
 }

@@ -5,7 +5,7 @@ import com.spsa.client.util.Constant;
 
 import java.util.Date;
 
-public class TotalLifeExpectancy {
+public class LifeExpectancy {
 
     @JsonProperty("sex")
     private Constant.Gender gender;

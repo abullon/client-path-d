@@ -2,6 +2,9 @@ package com.spsa.client.util;
 
 public class MathUtils {
 
+    private MathUtils() {
+    }
+
     public static double deviation(double[] v, double m){
         double sum=0;
         for(int i=0; i<v.length; i++){

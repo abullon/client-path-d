@@ -20,7 +20,6 @@ public class DateUtils {
     public static int calculateAge(
             LocalDate birthDate,
             LocalDate currentDate) {
-        // validate inputs ...
         return Period.between(birthDate, currentDate).getYears();
     }
 
@@ -36,6 +35,5 @@ public class DateUtils {
         calendar.setTime(date);
         return calendar;
     }
-
 
 }

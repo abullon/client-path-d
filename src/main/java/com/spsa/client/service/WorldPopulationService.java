@@ -5,6 +5,7 @@ import com.spsa.client.model.Countries;
 import com.spsa.client.model.LifeExpectancy;
 import com.spsa.client.util.DateUtils;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -23,6 +24,7 @@ public class WorldPopulationService {
         return response.getTotalLifeExpectancy();
     }
 
+    @CrossOrigin(origins = "https://path-d-frontend.firebaseapp.com")
     @GetMapping("/countries")
     public Countries getCountry() {
         return  restTemplate.getForObject(
